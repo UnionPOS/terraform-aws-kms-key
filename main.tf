@@ -1,5 +1,5 @@
 module "label" {
-  source     = "git::https://github.com/UnionPOS/terraform-null-label.git?ref=tags/0.16.0"
+  source     = "git::https://github.com/UnionPOS/terraform-null-label.git?ref=up"
   namespace  = var.namespace
   stage      = var.stage
   name       = var.name
@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "default" {
 }
 
 module "policy" {
-  source           = "git::https://github.com/UnionPOS/terraform-aws-iam-policy-document-aggregator.git?ref=tf12"
+  source           = "git::https://github.com/UnionPOS/terraform-aws-iam-policy-document-aggregator.git?ref=up"
   source_documents = ["${data.aws_iam_policy_document.default.json}", "${var.policy}"]
 }
 
